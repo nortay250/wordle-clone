@@ -40,15 +40,10 @@ app.get("/check", (req, res) => {
     
     axios.request(options).then((response) => {
         console.log(response.data);
-        res.json(response.data.result_msg)
+        res.json(response.data)
     }).catch((error) => {
         console.error(error);
     });
-})
-
-
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "build", "index.html"));
 })
 
 app.listen(PORT, ()=> console.log("Server running on port " + PORT));
