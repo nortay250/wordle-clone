@@ -4,7 +4,7 @@ const messageDisplay = document.querySelector(".message-container");
 let wordle;
 
 const getWordle = () => {
-    fetch("https://wordle-clone-tau.vercel.app/word")
+    fetch("http://localhost:8000/word")
         .then(response => response.json())
         .then(json => {
             // console.log(json);
@@ -117,7 +117,7 @@ const deleteLetter = () => {
 const checkRow = () => {
     const guess = guessRows[currentRow].join('')
     if (currentTile > 4) {
-        fetch(`https://wordle-clone-tau.vercel.app/check/?word=${guess}`)
+        fetch(`http://localhost:8000/check/?word=${guess}`)
             .then(response => response.json())
             .then(json => {
                 if (json == 'Entry word not found') {
